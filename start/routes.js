@@ -29,13 +29,14 @@ router.get('/', function(req, res, next) {
   var options = {
     order: [['createdAt', 'DESC']]
   };
-  models.Order.findAll(options)
-  .then(function(orders) {
+  Sequelize.Promise.all([
+    models.Order.findAll(options),
+    models.Spreadsheet.findAll(options)
+  ]).then(function(results) {
     res.render('index', {
-      orders: orders
+      orders: results[0],
+      spreadsheets: results[1]
     });
-  }, function(err) {
-    next(err);
   });
 });
 
