@@ -19,6 +19,7 @@
 
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,18 +40,29 @@
   <script src="/script.js"></script>
 
   <!-- TODO: Add Google Sign-in library -->
+  <meta name="google-signin-scope" content="https://www.googleapis.com/auth/spreadsheets">
+  <meta name="google-signin-client_id" content="77252511027-4vf1a6nu13k2qb22hqu7191srnb6hi2b.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
 
 </head>
+
 <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
       <div class="mdl-layout--large-screen-only mdl-layout__header-row"></div>
       <div class="mdl-layout__header-row">
-        <h3><a href="/">Customer Order System</a></h3>
+        <h3>
+          <a href="/">Customer Order System</a>
+        </h3>
         <div class="mdl-layout-spacer"></div>
         <div id="spinner" class="mdl-spinner mdl-js-spinner"></div>
         <!-- TODO: Add Google Sign-in button -->
-
+        <div id="profile" style="margin: 0 20px;">
+          <b class="name"></b>
+          <br/>
+          <i class="email"></i>
+        </div>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
       </div>
       <div class="mdl-layout--large-screen-only mdl-layout__header-row"></div>
     </header>
@@ -63,4 +75,5 @@
     </div>
   </div>
 </body>
+
 </html>
